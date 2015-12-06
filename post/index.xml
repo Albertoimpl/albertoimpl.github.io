@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on </title>
+    <link>http://albertoimpl.github.io/post/</link>
+    <description>Recent content in Posts on </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 05 Dec 2015 23:16:00 +0000</lastBuildDate>
+    <atom:link href="http://albertoimpl.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>The importance of tail recursion</title>
+      <link>http://albertoimpl.github.io/post/the-importance-of-tail-recursion/</link>
+      <pubDate>Sat, 05 Dec 2015 23:16:00 +0000</pubDate>
+      
+      <guid>http://albertoimpl.github.io/post/the-importance-of-tail-recursion/</guid>
+      <description>&lt;p&gt;On your way to becoming a more functional developer, you have to regain some of your recursion skills.
+Recursion is pure functional programming best natural match because you don’t need any state to recurse.&lt;/p&gt;
+
+&lt;p&gt;If we look into its pure mathematical concept, a function has no side effects and no state. No side effects means you can’t use counters in loops since that would be a mutable state being modified (with would be the side effect).
+Recursive algorithms are simpler because they only deal with input values. In an iterative algorithm we need to consider the list as a whole.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;def factorial_iterative(n)
+  accumulated = 1
+  while n &amp;gt; 1
+    accumulated = n * accumulated
+    n = n - 1
+  end
+  accumulated
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;However, dealing with recursion is a dangerous thing, &lt;a href=&#34;http://www.refactoring.com/catalog/replaceRecursionWithIteration.html&#34; target=&#34;_blank&#34;&gt;also a bad smell&lt;/a&gt;, since we could end up with a stack overflow if we are not careful enough. The stack will expand per call. Several languages help us avoid having expanding stacks.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;def factorial_recursive(n)
+  return 1 if n &amp;lt;= 1
+  n * factorial_recursive(n - 1)
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;A tail call happens when a function makes a function call as its final action so there are no outstanding operations within the function at the moment the return occurs.
+If you no longer need the stack, you can unwind the recursive calls.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;def factorial_tailcall(n, accumulated=1)
+  return accumulated if n &amp;lt;= 1
+  factorial_tailcall(n - 1, n * accumulated)
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Sadly, some languages like Java don’t support tail recursion.&lt;/p&gt;
+
+&lt;p&gt;I&amp;rsquo;ve found a few tricks to reach a similar optimization using lambda expressions in Java 8. Almost like the &lt;a href=&#34;http://mrhaki.blogspot.ie/2011/04/groovy-goodness-recursion-with-closure.html&#34; target=&#34;_blank&#34;&gt;trampolines used in Groovy&lt;/a&gt;.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;def factorial
+factorial = {
+    it &amp;lt;= 1 ? 1 : it * factorial(it - 1)
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;By just adding the trampoline, the function will be returning a TrampolineClosure until it reaches the value, without increasing the stack.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;def factorial
+factorial = {it, acc = 1-&amp;gt;
+    it &amp;lt;= 1 ? acc : factorial.trampoline(it - 1, it * acc)
+}.trampoline()
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Java 8 didn’t add any compile level tail recursion support. There are some security sensitive methods that count stack frames between JDK library code and calling code to figure out who&amp;rsquo;s calling them.
+We can still create our own functional interface with a similar behavior &lt;a href=&#34;https://github.com/groovy/groovy-core/blob/master/src/main/groovy/lang/TrampolineClosure.java&#34; target=&#34;_blank&#34;&gt;inspired by the Groovy TrampolineClosure implementation&lt;/a&gt;.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;@FunctionalInterface
+public interface Trampoline&amp;lt;V&amp;gt; {
+
+    V trampoline();
+
+    default V call() {
+        Object trampoline = this;
+        while (trampoline instanceof Trampoline) {
+            trampoline = ((Trampoline) trampoline).trampoline();
+        }
+        @SuppressWarnings(&amp;quot;unchecked&amp;quot;)
+        V value = (V) trampoline;
+        return value;
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;By using this Trampoline interface our factorial function will look like this:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;public static Trampoline factorial(final int n, final BigInteger accumulated) {
+    return () -&amp;gt; {
+        if (n &amp;lt;= 1) return accumulated;
+        return factorial(n - 1, accumulated.multiply(BigInteger.valueOf(n)));
+    };
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Full examples can be found here:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Ruby: &lt;a href=&#34;https://gist.github.com/AlbertoImpl/1bc5fe6f30653c4fbf58&#34; target=&#34;_blank&#34;&gt;https://gist.github.com/AlbertoImpl/1bc5fe6f30653c4fbf58&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Java: &lt;a href=&#34;https://gist.github.com/AlbertoImpl/3fbf55d5310e0b185e9a&#34; target=&#34;_blank&#34;&gt;https://gist.github.com/AlbertoImpl/3fbf55d5310e0b185e9a&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
