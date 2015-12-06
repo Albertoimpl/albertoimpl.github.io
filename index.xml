@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title></title>
-    <link>http://albertoimpl.github.io/</link>
+    <link>http://albertoimpl.com/</link>
     <description>Recent content on </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 05 Dec 2015 23:16:00 +0000</lastBuildDate>
-    <atom:link href="http://albertoimpl.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://albertoimpl.com/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>The importance of tail recursion</title>
-      <link>http://albertoimpl.github.io/post/the-importance-of-tail-recursion/</link>
+      <link>http://albertoimpl.com/post/the-importance-of-tail-recursion/</link>
       <pubDate>Sat, 05 Dec 2015 23:16:00 +0000</pubDate>
       
-      <guid>http://albertoimpl.github.io/post/the-importance-of-tail-recursion/</guid>
+      <guid>http://albertoimpl.com/post/the-importance-of-tail-recursion/</guid>
       <description>&lt;p&gt;On your way to becoming a more functional developer, you have to regain some of your recursion skills.
 Recursion is pure functional programming best natural match because you don’t need any state to recurse.&lt;/p&gt;
 
@@ -107,10 +107,10 @@ public interface Trampoline&amp;lt;V&amp;gt; {
     
     <item>
       <title>About</title>
-      <link>http://albertoimpl.github.io/about/</link>
+      <link>http://albertoimpl.com/about/</link>
       <pubDate>Sat, 05 Dec 2015 15:49:51 +0100</pubDate>
       
-      <guid>http://albertoimpl.github.io/about/</guid>
+      <guid>http://albertoimpl.com/about/</guid>
       <description>
 
 &lt;h1 id=&#34;alberto-calleja-software-guy:6083a88ee3411b0d17ce02d738f69d47&#34;&gt;Alberto Calleja, Software guy&lt;/h1&gt;
