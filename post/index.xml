@@ -6,8 +6,53 @@
     <description>Recent content in Posts on </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 05 Dec 2015 23:16:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 11 Jan 2016 22:03:14 +0000</lastBuildDate>
     <atom:link href="http://albertoimpl.com/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>The Boy Scout Rule</title>
+      <link>http://albertoimpl.com/post/the-boy-scout-rule/</link>
+      <pubDate>Mon, 11 Jan 2016 22:03:14 +0000</pubDate>
+      
+      <guid>http://albertoimpl.com/post/the-boy-scout-rule/</guid>
+      <description>&lt;p&gt;Every other developer has been in a situation where they see a very nasty piece of code they don&amp;rsquo;t even want to look at.&lt;/p&gt;
+
+&lt;p&gt;What should I do there? Why would I bother fixing it, causing more bugs and delaying the task I am now working on?
+There are a couple of metaphors that I like and try to apply and share with every colleague I work with.&lt;/p&gt;
+
+&lt;p&gt;Back in the 70s &lt;a href=&#34;http://www.theatlantic.com/magazine/archive/1982/03/broken-windows/304465/&#34; target=&#34;_blank&#34;&gt;a program for “Safe and Clean Neighborhoods” in the State of New Jersey was created.&lt;/a&gt; The program was aimed to develop a criminological theory of the effects of urban disorder that is known today as the &amp;lsquo;broken window theory&amp;rsquo;.&lt;/p&gt;
+
+&lt;p&gt;When you see a building, or a street that is completely clean, you don’t want to be the first to mess it up.
+However, if you see a dirty street, you don’t care that much about throwing something extra to the floor.&lt;/p&gt;
+
+&lt;p&gt;If you see a piece of paper and you don’t pick it up, it will look like nobody cares about the street, so people will stop caring, making the street dirtier.&lt;/p&gt;
+
+&lt;p&gt;The same happens with our software, if we decide to continue the tangle and add more quick-win, bad code into the system, it will be a rotten project sooner than later.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;One broken window leads to many broken windows.&lt;/strong&gt;&lt;/p&gt;
+
+
+&lt;figure &gt;
+    
+        &lt;img src=&#34;http://albertoimpl.com/broken-window.jpg&#34; alt=&#34;Broken window&#34; /&gt;
+    
+    
+&lt;/figure&gt;
+
+
+&lt;p&gt;The Boy Scouts have a rule that says: &lt;strong&gt;“Always leave the campground cleaner than you found it”.&lt;/strong&gt;
+If you find a piece of paper in the floor, pick it up regardless of who threw it there.&lt;/p&gt;
+
+&lt;p&gt;If we follow similar rules with our code we should always refactor every module we touch, regardless of who first created it. The whole project will just increase its quality over time and will give us that “always refactoring mode” we all should have. &lt;strong&gt;Einstein once said that “there is no force so powerful in the universe as compound interest”&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;The time spent in refactoring the module you are working
+on, once you understand its logic, is way lower than if you set up a task to fix it in the future, you will have to regain the knowledge to know exactly what to do there.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Dogs aren&amp;rsquo;t just for Christmas and features aren’t just for the next release&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;So, the next time you see something that shouldn’t be there, refactor it, talk about this theory with your colleagues and predicate with the example. May the software we all build be professional and a pleasant to work with system.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>The importance of tail recursion</title>
