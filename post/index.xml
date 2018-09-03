@@ -7,7 +7,9 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 11 Jan 2016 22:03:14 +0000</lastBuildDate>
-    <atom:link href="http://albertoimpl.com/post/index.xml" rel="self" type="application/rss+xml" />
+    
+	<atom:link href="http://albertoimpl.com/post/index.xml" rel="self" type="application/rss+xml" />
+    
     
     <item>
       <title>The Boy Scout Rule</title>
@@ -15,43 +17,9 @@
       <pubDate>Mon, 11 Jan 2016 22:03:14 +0000</pubDate>
       
       <guid>http://albertoimpl.com/post/the-boy-scout-rule/</guid>
-      <description>&lt;p&gt;Every other developer has been in a situation where they see a very nasty piece of code they don&amp;rsquo;t even want to look at.&lt;/p&gt;
-
-&lt;p&gt;What should I do there? Why would I bother fixing it, causing more bugs and delaying the task I am now working on?
-There are a couple of metaphors that I like and try to apply and share with every colleague I work with.&lt;/p&gt;
-
-&lt;p&gt;Back in the 70s &lt;a href=&#34;http://www.theatlantic.com/magazine/archive/1982/03/broken-windows/304465/&#34; target=&#34;_blank&#34;&gt;a program for “Safe and Clean Neighborhoods” in the State of New Jersey was created.&lt;/a&gt; The program was aimed to develop a criminological theory of the effects of urban disorder that is known today as the &amp;lsquo;broken window theory&amp;rsquo;.&lt;/p&gt;
-
-&lt;p&gt;When you see a building, or a street that is completely clean, you don’t want to be the first to mess it up.
-However, if you see a dirty street, you don’t care that much about throwing something extra to the floor.&lt;/p&gt;
-
-&lt;p&gt;If you see a piece of paper and you don’t pick it up, it will look like nobody cares about the street, so people will stop caring, making the street dirtier.&lt;/p&gt;
-
-&lt;p&gt;The same happens with our software, if we decide to continue the tangle and add more quick-win, bad code into the system, it will be a rotten project sooner than later.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;One broken window leads to many broken windows.&lt;/strong&gt;&lt;/p&gt;
-
-
-&lt;figure &gt;
-    
-        &lt;img src=&#34;http://albertoimpl.com/broken-window.jpg&#34; alt=&#34;Broken window&#34; /&gt;
-    
-    
-&lt;/figure&gt;
-
-
-&lt;p&gt;The Boy Scouts have a rule that says: &lt;strong&gt;“Always leave the campground cleaner than you found it”.&lt;/strong&gt;
-If you find a piece of paper in the floor, pick it up regardless of who threw it there.&lt;/p&gt;
-
-&lt;p&gt;If we follow similar rules with our code we should always refactor every module we touch, regardless of who first created it. The whole project will just increase its quality over time and will give us that “always refactoring mode” we all should have. &lt;strong&gt;Einstein once said that “there is no force so powerful in the universe as compound interest”&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;The time spent in refactoring the module you are working
-on, once you understand its logic, is way lower than if you set up a task to fix it in the future, you will have to regain the knowledge to know exactly what to do there.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Dogs aren&amp;rsquo;t just for Christmas and features aren’t just for the next release&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;So, the next time you see something that shouldn’t be there, refactor it, talk about this theory with your colleagues and predicate with the example. May the software we all build be professional and a pleasant to work with system.&lt;/p&gt;
-</description>
+      <description>Every other developer has been in a situation where they see a very nasty piece of code they don&amp;rsquo;t even want to look at.
+What should I do there? Why would I bother fixing it, causing more bugs and delaying the task I am now working on? There are a couple of metaphors that I like and try to apply and share with every colleague I work with.
+Back in the 70s a program for “Safe and Clean Neighborhoods” in the State of New Jersey was created.</description>
     </item>
     
     <item>
@@ -60,94 +28,8 @@ on, once you understand its logic, is way lower than if you set up a task to fix
       <pubDate>Sat, 05 Dec 2015 23:16:00 +0000</pubDate>
       
       <guid>http://albertoimpl.com/post/the-importance-of-tail-recursion/</guid>
-      <description>&lt;p&gt;On your way to becoming a more functional developer, you have to regain some of your recursion skills.
-Recursion is pure functional programming best natural match because you don’t need any state to recurse.&lt;/p&gt;
-
-&lt;p&gt;If we look into its pure mathematical concept, a function has no side effects and no state. No side effects means you can’t use counters in loops since that would be a mutable state being modified (with would be the side effect).
-Recursive algorithms are simpler because they only deal with input values. In an iterative algorithm we need to consider the list as a whole.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;def factorial_iterative(n)
-  accumulated = 1
-  while n &amp;gt; 1
-    accumulated = n * accumulated
-    n = n - 1
-  end
-  accumulated
-end
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;However, dealing with recursion is a dangerous thing, &lt;a href=&#34;http://www.refactoring.com/catalog/replaceRecursionWithIteration.html&#34; target=&#34;_blank&#34;&gt;also a bad smell&lt;/a&gt;, since we could end up with a stack overflow if we are not careful enough. The stack will expand per call. Several languages help us avoid having expanding stacks.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;def factorial_recursive(n)
-  return 1 if n &amp;lt;= 1
-  n * factorial_recursive(n - 1)
-end
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;A tail call happens when a function makes a function call as its final action so there are no outstanding operations within the function at the moment the return occurs.
-If you no longer need the stack, you can unwind the recursive calls.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;def factorial_tailcall(n, accumulated=1)
-  return accumulated if n &amp;lt;= 1
-  factorial_tailcall(n - 1, n * accumulated)
-end
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Sadly, some languages like Java don’t support tail recursion.&lt;/p&gt;
-
-&lt;p&gt;I&amp;rsquo;ve found a few tricks to reach a similar optimization using lambda expressions in Java 8. Almost like the &lt;a href=&#34;http://mrhaki.blogspot.ie/2011/04/groovy-goodness-recursion-with-closure.html&#34; target=&#34;_blank&#34;&gt;trampolines used in Groovy&lt;/a&gt;.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;def factorial
-factorial = {
-    it &amp;lt;= 1 ? 1 : it * factorial(it - 1)
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;By just adding the trampoline, the function will be returning a TrampolineClosure until it reaches the value, without increasing the stack.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;def factorial
-factorial = {it, acc = 1-&amp;gt;
-    it &amp;lt;= 1 ? acc : factorial.trampoline(it - 1, it * acc)
-}.trampoline()
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Java 8 didn’t add any compile level tail recursion support. There are some security sensitive methods that count stack frames between JDK library code and calling code to figure out who&amp;rsquo;s calling them.
-We can still create our own functional interface with a similar behavior &lt;a href=&#34;https://github.com/groovy/groovy-core/blob/master/src/main/groovy/lang/TrampolineClosure.java&#34; target=&#34;_blank&#34;&gt;inspired by the Groovy TrampolineClosure implementation&lt;/a&gt;.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;@FunctionalInterface
-public interface Trampoline&amp;lt;V&amp;gt; {
-
-    V trampoline();
-
-    default V call() {
-        Object trampoline = this;
-        while (trampoline instanceof Trampoline) {
-            trampoline = ((Trampoline) trampoline).trampoline();
-        }
-        @SuppressWarnings(&amp;quot;unchecked&amp;quot;)
-        V value = (V) trampoline;
-        return value;
-    }
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;By using this Trampoline interface our factorial function will look like this:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;public static Trampoline factorial(final int n, final BigInteger accumulated) {
-    return () -&amp;gt; {
-        if (n &amp;lt;= 1) return accumulated;
-        return factorial(n - 1, accumulated.multiply(BigInteger.valueOf(n)));
-    };
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Full examples can be found here:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Ruby: &lt;a href=&#34;https://gist.github.com/AlbertoImpl/1bc5fe6f30653c4fbf58&#34; target=&#34;_blank&#34;&gt;https://gist.github.com/AlbertoImpl/1bc5fe6f30653c4fbf58&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Java: &lt;a href=&#34;https://gist.github.com/AlbertoImpl/3fbf55d5310e0b185e9a&#34; target=&#34;_blank&#34;&gt;https://gist.github.com/AlbertoImpl/3fbf55d5310e0b185e9a&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-</description>
+      <description>On your way to becoming a more functional developer, you have to regain some of your recursion skills. Recursion is pure functional programming best natural match because you don’t need any state to recurse.
+If we look into its pure mathematical concept, a function has no side effects and no state. No side effects means you can’t use counters in loops since that would be a mutable state being modified (with would be the side effect).</description>
     </item>
     
   </channel>

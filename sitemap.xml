@@ -1,11 +1,6 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  
-  <url>
-    <loc>http://albertoimpl.com/</loc>
-    <lastmod>2016-01-11T22:03:14+00:00</lastmod>
-    <priority>0</priority>
-  </url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
     <loc>http://albertoimpl.com/post/the-boy-scout-rule/</loc>
@@ -20,6 +15,28 @@
   <url>
     <loc>http://albertoimpl.com/about/</loc>
     <lastmod>2015-12-05T15:49:51+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://albertoimpl.com/</loc>
+    <lastmod>2016-01-11T22:03:14+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://albertoimpl.com/categories/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://albertoimpl.com/post/</loc>
+    <lastmod>2016-01-11T22:03:14+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://albertoimpl.com/tags/</loc>
+    <priority>0</priority>
   </url>
   
 </urlset>
