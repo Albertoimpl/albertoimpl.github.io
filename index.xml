@@ -29,7 +29,7 @@ Back in the 70s a program for “Safe and Clean Neighborhoods” in the State of
       
       <guid>http://albertoimpl.com/post/the-importance-of-tail-recursion/</guid>
       <description>On your way to becoming a more functional developer, you have to regain some of your recursion skills. Recursion is pure functional programming best natural match because you don’t need any state to recurse.
-If we look into its pure mathematical concept, a function has no side effects and no state. No side effects means you can’t use counters in loops since that would be a mutable state being modified (with would be the side effect).</description>
+If we look into its pure mathematical concept, a function has no side effects and no state. No side effects mean you can’t use counters in loops since that would be a mutable state being modified (with would be the side effect).</description>
     </item>
     
     <item>
