@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on </title>
-    <link>http://albertoimpl.com/post/</link>
+    <link>https://albertoimpl.com/post/</link>
     <description>Recent content in Posts on </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 11 Jan 2016 22:03:14 +0000</lastBuildDate>
     
-	<atom:link href="http://albertoimpl.com/post/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://albertoimpl.com/post/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>The Boy Scout Rule</title>
-      <link>http://albertoimpl.com/post/the-boy-scout-rule/</link>
+      <link>https://albertoimpl.com/post/the-boy-scout-rule/</link>
       <pubDate>Mon, 11 Jan 2016 22:03:14 +0000</pubDate>
       
-      <guid>http://albertoimpl.com/post/the-boy-scout-rule/</guid>
+      <guid>https://albertoimpl.com/post/the-boy-scout-rule/</guid>
       <description>Every other developer has been in a situation where they see a very nasty piece of code they don&amp;rsquo;t even want to look at.
 What should I do there? Why would I bother fixing it, causing more bugs and delaying the task I am now working on? There are a couple of metaphors that I like and try to apply and share with every colleague I work with.
 Back in the 70s a program for “Safe and Clean Neighborhoods” in the State of New Jersey was created.</description>
@@ -24,10 +24,10 @@ Back in the 70s a program for “Safe and Clean Neighborhoods” in the State of
     
     <item>
       <title>The importance of tail recursion</title>
-      <link>http://albertoimpl.com/post/the-importance-of-tail-recursion/</link>
+      <link>https://albertoimpl.com/post/the-importance-of-tail-recursion/</link>
       <pubDate>Sat, 05 Dec 2015 23:16:00 +0000</pubDate>
       
-      <guid>http://albertoimpl.com/post/the-importance-of-tail-recursion/</guid>
+      <guid>https://albertoimpl.com/post/the-importance-of-tail-recursion/</guid>
       <description>On your way to becoming a more functional developer, you have to regain some of your recursion skills. Recursion is pure functional programming best natural match because you don’t need any state to recurse.
 If we look into its pure mathematical concept, a function has no side effects and no state. No side effects mean you can’t use counters in loops since that would be a mutable state being modified (with would be the side effect).</description>
     </item>
