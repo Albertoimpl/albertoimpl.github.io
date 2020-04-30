@@ -77,10 +77,8 @@
     <h1 class="post-title">The importance of tail recursion</h1>
     <p>On your way to becoming a more functional developer, you have to regain some of your recursion skills.
 Recursion is pure functional programming best natural match because you don’t need any state to recurse.</p>
-
 <p>If we look into its pure mathematical concept, a function has no side effects and no state. No side effects mean you can’t use counters in loops since that would be a mutable state being modified (with would be the side effect).
 Recursive algorithms are simpler because they only deal with input values. In an iterative algorithm, we need to consider the list as a whole.</p>
-
 <pre><code>def factorial_iterative(n)
   accumulated = 1
   while n &gt; 1
@@ -90,45 +88,34 @@ Recursive algorithms are simpler because they only deal with input values. In an
   accumulated
 end
 </code></pre>
-
-<p>However, dealing with recursion is a dangerous thing, <a href="http://www.refactoring.com/catalog/replaceRecursionWithIteration.html" target="_blank">also a bad smell</a>, since we could end up with a stack overflow if we are not careful enough. The stack will expand per call. Several languages help us avoid having expanding stacks.</p>
-
+<p>However, dealing with recursion is a dangerous thing, <a href="http://www.refactoring.com/catalog/replaceRecursionWithIteration.html">also a bad smell</a>, since we could end up with a stack overflow if we are not careful enough. The stack will expand per call. Several languages help us avoid having expanding stacks.</p>
 <pre><code>def factorial_recursive(n)
   return 1 if n &lt;= 1
   n * factorial_recursive(n - 1)
 end
 </code></pre>
-
 <p>A tail call happens when a function makes a function call as its final action so there are no outstanding operations within the function at the moment the return occurs.
 If you no longer need the stack, you can unwind the recursive calls.</p>
-
 <pre><code>def factorial_tailcall(n, accumulated=1)
   return accumulated if n &lt;= 1
   factorial_tailcall(n - 1, n * accumulated)
 end
 </code></pre>
-
 <p>Sadly, some languages like Java don’t support tail recursion.</p>
-
-<p>I&rsquo;ve found a few tricks to reach a similar optimization using lambda expressions in Java 8. Almost like the <a href="http://mrhaki.blogspot.ie/2011/04/groovy-goodness-recursion-with-closure.html" target="_blank">trampolines used in Groovy</a>.</p>
-
+<p>I&rsquo;ve found a few tricks to reach a similar optimization using lambda expressions in Java 8. Almost like the <a href="http://mrhaki.blogspot.ie/2011/04/groovy-goodness-recursion-with-closure.html">trampolines used in Groovy</a>.</p>
 <pre><code>def factorial
 factorial = {
     it &lt;= 1 ? 1 : it * factorial(it - 1)
 }
 </code></pre>
-
 <p>By just adding the trampoline, the function will be returning a TrampolineClosure until it reaches the value, without increasing the stack.</p>
-
 <pre><code>def factorial
 factorial = {it, acc = 1-&gt;
     it &lt;= 1 ? acc : factorial.trampoline(it - 1, it * acc)
 }.trampoline()
 </code></pre>
-
 <p>Java 8 didn’t add any compile level tail recursion support. There are some security sensitive methods that count stack frames between JDK library code and calling code to figure out who&rsquo;s calling them.
-We can still create our own functional interface with a similar behavior <a href="https://github.com/groovy/groovy-core/blob/master/src/main/groovy/lang/TrampolineClosure.java" target="_blank">inspired by the Groovy TrampolineClosure implementation</a>.</p>
-
+We can still create our own functional interface with a similar behavior <a href="https://github.com/groovy/groovy-core/blob/master/src/main/groovy/lang/TrampolineClosure.java">inspired by the Groovy TrampolineClosure implementation</a>.</p>
 <pre><code>@FunctionalInterface
 public interface Trampoline&lt;V&gt; {
 
@@ -145,9 +132,7 @@ public interface Trampoline&lt;V&gt; {
     }
 }
 </code></pre>
-
 <p>By using this Trampoline interface our factorial function will look like this:</p>
-
 <pre><code>public static Trampoline factorial(final int n, final BigInteger accumulated) {
     return () -&gt; {
         if (n &lt;= 1) return accumulated;
@@ -155,12 +140,10 @@ public interface Trampoline&lt;V&gt; {
     };
 }
 </code></pre>
-
 <p>Full examples can be found here:</p>
-
 <ul>
-<li>Ruby: <a href="https://gist.github.com/AlbertoImpl/1bc5fe6f30653c4fbf58" target="_blank">https://gist.github.com/AlbertoImpl/1bc5fe6f30653c4fbf58</a></li>
-<li>Java: <a href="https://gist.github.com/AlbertoImpl/3fbf55d5310e0b185e9a" target="_blank">https://gist.github.com/AlbertoImpl/3fbf55d5310e0b185e9a</a></li>
+<li>Ruby: <a href="https://gist.github.com/AlbertoImpl/1bc5fe6f30653c4fbf58">https://gist.github.com/AlbertoImpl/1bc5fe6f30653c4fbf58</a></li>
+<li>Java: <a href="https://gist.github.com/AlbertoImpl/3fbf55d5310e0b185e9a">https://gist.github.com/AlbertoImpl/3fbf55d5310e0b185e9a</a></li>
 </ul>
 
     <div class="share">

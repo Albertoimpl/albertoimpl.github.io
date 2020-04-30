@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on </title>
@@ -6,10 +6,21 @@
     <description>Recent content in Posts on </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 11 Jan 2016 22:03:14 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 30 Apr 2020 12:46:36 +0200</lastBuildDate>
     
 	<atom:link href="https://albertoimpl.com/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>�Necesitamos los Daily Standup?</title>
+      <link>https://albertoimpl.com/post/necesitamos-los-daily-standup/</link>
+      <pubDate>Thu, 30 Apr 2020 12:46:36 +0200</pubDate>
+      
+      <guid>https://albertoimpl.com/post/necesitamos-los-daily-standup/</guid>
+      <description>Los Daily Standup son una de las herramientas m�s usadas desde que se populariz� el uso de Scrum pero, como toda herramienta, hay que pensar muy bien qu� aporta al equipo.
+La forma m�s com�n de ejecutar el Daily es respondiendo las preguntas:
+ �Qu� hiciste ayer? �Qu� vas a hacer hoy? �Qu� impedimentos o bloqueos no te est�n dejando ejecutar tu trabajo?  Nosotros dejamos de hacer Dailies hace un tiempo.</description>
+    </item>
     
     <item>
       <title>The Boy Scout Rule</title>
