@@ -45,8 +45,8 @@ If we look into its pure mathematical concept, a function has no side effects an
       <pubDate>Sat, 05 Dec 2015 15:49:51 +0100</pubDate>
       
       <guid>https://albertoimpl.com/about/</guid>
-      <description>Alberto C. Ríos, Software guy Software Engineer interested in building products people love in agile environments with a focus on high-quality tests and clean code.
-Drop me an email: albertoimpl AT gmail.com or find me on twitter: @albertoimpl</description>
+      <description>Alberto C. Ríos, Software guy Software Engineer interested in building products people love in agile environments with a focus on high-quality tests.
+I&amp;rsquo;m part of the Spring Engineering team at VMware after the Pivotal acquisition. We are a fully remote team building products and frameworks to help people adopt microservices architecture and improve the experience of Java and Spring in Cloud Foundry and Kubernetes by providing a secured product, highly available, and adding platform-specific features.</description>
     </item>
     
   </channel>
