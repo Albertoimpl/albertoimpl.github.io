@@ -6,7 +6,18 @@
     <description>Recent content on </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 30 Apr 2020 12:46:36 +0200</lastBuildDate><atom:link href="https://albertoimpl.com/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 30 Sep 2022 16:56:17 +0200</lastBuildDate><atom:link href="https://albertoimpl.com/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>The current state of Java native images</title>
+      <link>https://albertoimpl.com/post/current-state-java-native-images/</link>
+      <pubDate>Fri, 30 Sep 2022 16:56:17 +0200</pubDate>
+      
+      <guid>https://albertoimpl.com/post/current-state-java-native-images/</guid>
+      <description>Native compilation of Java applications revolutionized the whole ecosystem and enabled new kinds of workloads written in Java. A lot of engineering effort was required for it to succeed and a significant marketing budget was spent to add it to the Java developer radar.
+However, the tradeoffs and implications when taming this horse are not always obvious nor shared with the same passion as its benefits.
+The good things are the ones we keep reading all the time we will have compacted native executables and memory consumption, startup time, and application size among others will improve dramatically.</description>
+    </item>
+    
     <item>
       <title>Cuestionando los Daily Standup</title>
       <link>https://albertoimpl.com/post/necesitamos-los-daily-standup/</link>
@@ -15,7 +26,7 @@
       <guid>https://albertoimpl.com/post/necesitamos-los-daily-standup/</guid>
       <description>Los Daily Standup son una de las herramientas más usadas desde que se popularizó el uso de Scrum pero, como toda herramienta, hay que pensar muy bien qué aporta al equipo.
 La forma más común de ejecutar el Daily es respondiendo a las preguntas:
- ¿Qué hiciste ayer? ¿Qué vas a hacer hoy? ¿Qué impedimentos o bloqueos no te están dejando ejecutar tu trabajo?  Nosotros dejamos de hacer Dailies hace un tiempo.</description>
+¿Qué hiciste ayer? ¿Qué vas a hacer hoy? ¿Qué impedimentos o bloqueos no te están dejando ejecutar tu trabajo? Nosotros dejamos de hacer Dailies hace un tiempo.</description>
     </item>
     
     <item>
